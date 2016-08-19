@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/andela-homestd.iml" filepath="$PROJECT_DIR$/.idea/andela-homestd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../andela/ex1/.idea/ex1.iml" filepath="$PROJECT_DIR$/../andela/ex1/.idea/ex1.iml" />
+    </modules>
+  </component>
+</project>
