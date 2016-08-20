@@ -3,6 +3,7 @@ from pythonds.basic.stack import Stack
 
 def infixToPostfix(infixexpr):
     prec = {}
+    prec["^"] = 4
     prec["*"] = 3
     prec["/"] = 3
     prec["+"] = 2

@@ -35,23 +35,33 @@ class Card:
 
 
 class Play:
+    player_name = 0
+    player_dic = {}
+    player_list = []
+
     def __init__(self):
         # create new deck instance
         d = Deck()
         pass
 
-    @staticmethod
-    def give_cards():
+    def give_cards(self):
         # ask for how many players will be playing
         # get the number and use it to ask for their names
         player_num = int(raw_input("How many players will be playing today:>> "))
-        player_dic = {}
+
         for i in range(0, player_num):
             player_name = raw_input("Please give names of players:>> ")
-            player_dic[str(i)] = player_name
-            print(player_dic[str(i)])
+            Play.player_dic[str(i)] = player_name
 
-        return
+            print(Play.player_dic[str(i)])
+
+            # create instance of player class with entered name
+            Play.player_dic[str(i)] = Player(Play.player_dic[str(i)])
+
+            # add the player to a list
+            ls = Play.player_list.append(Play.player_dic[str(i)])
+
+        return ls
 
 
 class Player:
