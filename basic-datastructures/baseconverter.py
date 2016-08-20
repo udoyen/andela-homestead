@@ -1,8 +1,8 @@
 from pythonds.basic.stack import Stack
 
 
-def baseConverter(decNumber,base):
-    digits = "0123456789ABCDEF"
+def baseConverter(decNumber, base):
+    digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
     remstack = Stack()
 
@@ -18,5 +18,6 @@ def baseConverter(decNumber,base):
 
     return newString
 
-print(baseConverter(25,2))
-print(baseConverter(25,16))
+
+print(baseConverter(25, 2))
+print(baseConverter(25, 16))
