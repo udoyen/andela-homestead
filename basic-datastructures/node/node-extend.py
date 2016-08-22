@@ -19,11 +19,13 @@ class Node:
 class UnorderedList:
     def __init__(self):
         self.head = None
+        self.lssize = 0
 
     def isEmpty(self):
         return self.head == None
 
     def add(self, item):
+        self.lssize += 1
         temp = Node(item)
         temp.setNext(self.head)
         self.head = temp
@@ -78,6 +80,7 @@ class UnorderedList:
             if current.getNext() == None:
                 newitem = Node(item)
                 current.setNext(newitem)
+                self.lssize += 1
                 found = True
             else:
                 current = current.getNext()
@@ -103,6 +106,7 @@ class UnorderedList:
                     n = current.getNext()
                     newitem.setNext(n)
                     current.setNext(newitem)
+                    self.lssize += 1
                     done = True
                 else:
                     current = current.getNext()
@@ -124,6 +128,7 @@ class UnorderedList:
                     # below it...
                     # self.remove(current.getNext().getData())
                     current.setNext(None)
+                    self.lssize -= 1
                     done = True
                 else:
                     current = current.getNext()
@@ -147,15 +152,15 @@ class UnorderedList:
             return curpos
 
 
-
 mylist = UnorderedList()
 mylist.add(31)
 mylist.add(77)
 mylist.add(80)
 mylist.add(22)
-print(mylist.index(31))
-print(mylist.index(22))
-# mylist.append(20)
+# print(mylist.index(31))
+# print(mylist.index(22))
+# print(UnorderedList.lssize())
+mylist.append(20)
 # mylist.insert(1, 22)
 
 
