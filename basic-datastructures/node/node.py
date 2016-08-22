@@ -133,12 +133,12 @@ class UnorderedList:
         else:
             while current != None and not found:
                 curpos += 1
-                if self.search(item):
+                if current.getData() == item:
                     found = True
-                    return curpos
                 else:
-                    # curpos += 1
-                    self.search(item)
+                    current = current.getNext()
+
+            return curpos
 
             pass
 
