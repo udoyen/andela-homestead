@@ -27,7 +27,7 @@ class LinkedList:
             current = next
         self.head = prev
 
-    # Function to insert a new node at the beginning
+    # Function to insert a new unorderedlist at the beginning
     def push(self, new_data):
         new_node = Node(new_data)
         new_node.next = self.head
