@@ -69,23 +69,88 @@ class UnorderedList:
         found = False
         while current != None and not found:
             if current.getNext() == None:
-                ne = Node(item)
-                current.setNext(ne)
+                newitem = Node(item)
+                current.setNext(newitem)
                 found = True
             else:
                 current = current.getNext()
         return found
 
-    def insert(self, item):
-        pass
+    def insert(self, pos, item):
+        # check if the list is empty
+        # if it is then just call the add
+        # method
+        newitem = Node(item)
+        done = False
+        if self.size() == 0:
+            self.add(newitem)
+        else:
+            current = self.head
+            curpos = 0
+            while current != None and not done:
+                if pos == 1:
+                    self.add(item)
+                    done = True
+                curpos += 1
+                if curpos == pos - 1:
+                    n = current.getNext()
+                    newitem.setNext(n)
+                    current.setNext(newitem)
+                    done = True
+                else:
+                    current = current.getNext()
+
+            return done
 
     def pop(self):
-        pass
+        current = self.head
+        curpos = 0
+        done = False
+        lssize = self.size()
+        if lssize == 0:
+            print("The linked list is empty")
+        else:
+            while current != None and not done:
+                curpos += 1
+                print(current.getData())
+                if curpos == lssize - 1:
+                    # This method is slower than that
+                    # below it...
+                    # self.remove(current.getNext().getData())
+                    current.setNext(None)
+                    done = True
+                else:
+                    current = current.getNext()
+
+            return done
+
+    def index(self, item):
+        curpos = 0
+        found = False
+        current = self.head
+        if self.size() == 0:
+            print("Linked list is empty!")
+        else:
+            while current != None and not found:
+                curpos += 1
+                if self.search(item):
+                    found = True
+                    return curpos
+                else:
+                    # curpos += 1
+                    self.search(item)
+
+            pass
 
 
 mylist = UnorderedList()
 mylist.add(31)
 mylist.add(77)
 mylist.add(80)
-mylist.append(20)
+mylist.add(22)
+print(mylist.index(31))
+print(mylist.index(22))
+# mylist.append(20)
+# mylist.insert(1, 22)
+
 
