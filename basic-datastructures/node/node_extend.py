@@ -20,6 +20,7 @@ class UnorderedList:
     def __init__(self):
         self.head = None
         self.lssize = 0
+        self.nodels = []
 
     def isEmpty(self):
         return self.head == None
@@ -27,6 +28,7 @@ class UnorderedList:
     def add(self, item):
         self.lssize += 1
         temp = Node(item)
+        self.nodels.insert(0, temp)
         temp.setNext(self.head)
         self.head = temp
 
@@ -65,6 +67,7 @@ class UnorderedList:
             self.head = current.getNext()
         else:
             previous.setNext(current.getNext())
+            self.nodels.remove(current.getNext())
 
     def append(self, item):
         """
@@ -81,6 +84,7 @@ class UnorderedList:
                 newitem = Node(item)
                 current.setNext(newitem)
                 self.lssize += 1
+                self.nodels.append(newitem)
                 found = True
             else:
                 current = current.getNext()
@@ -106,6 +110,7 @@ class UnorderedList:
                     n = current.getNext()
                     newitem.setNext(n)
                     current.setNext(newitem)
+                    self.nodels.insert(pos, newitem)
                     self.lssize += 1
                     done = True
                 else:
@@ -129,6 +134,7 @@ class UnorderedList:
                     # self.remove(current.getNext().getData())
                     current.setNext(None)
                     self.lssize -= 1
+                    self.nodels.pop()
                     done = True
                 else:
                     current = current.getNext()
@@ -160,7 +166,7 @@ mylist.add(22)
 # print(mylist.index(31))
 # print(mylist.index(22))
 # print(UnorderedList.lssize())
-mylist.append(20)
+# mylist.append(20)
 # mylist.insert(1, 22)
 
 
