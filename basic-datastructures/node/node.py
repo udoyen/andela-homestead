@@ -140,7 +140,6 @@ class UnorderedList:
 
             return curpos
 
-            pass
 
 
 mylist = UnorderedList()
