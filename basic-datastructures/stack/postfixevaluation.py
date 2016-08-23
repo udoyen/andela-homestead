@@ -27,4 +27,4 @@ def doMath(op, op1, op2):
         return op1 - op2
 
 
-print(postfixEval('3 8 6 2 - - 4 5 + / +'))
+print(postfixEval('2 4 1 4 - - 8 2 + / +'))

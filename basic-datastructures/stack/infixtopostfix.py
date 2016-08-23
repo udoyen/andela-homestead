@@ -34,5 +34,5 @@ def infixToPostfix(infixexpr):
     return " ".join(postfixList)
 
 
-print(infixToPostfix("A + ( B - ( C - D ) ) / ( E + F )"))
-# print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+print(infixToPostfix("2 + ( 4 - ( ( 1 - 4 ) ) ) / ( 8 + 2 )"))
+print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
