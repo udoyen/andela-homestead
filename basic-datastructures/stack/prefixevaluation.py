@@ -4,8 +4,13 @@ from pythonds.basic.stack import Stack
 def postfixEval(postfixExpr):
     operandStack = Stack()
     tokenList = postfixExpr.split()
+    revst = Stack()
+    for i in tokenList:
+        revst.push(i)
 
-    for token in tokenList:
+    # for token in tokenList:
+    while not revst.isEmpty():
+        token = revst.pop()
         if token in "0123456789":
             operandStack.push(int(token))
         else:
@@ -27,4 +32,4 @@ def doMath(op, op1, op2):
         return op1 - op2
 
 
-print(postfixEval('3 8 6 2 - - 4 5 + / +'))
+print(postfixEval('	+ + 2 * 8 2 4'))
