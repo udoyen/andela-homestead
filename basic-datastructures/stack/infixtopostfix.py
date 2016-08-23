@@ -3,6 +3,7 @@ from pythonds.basic.stack import Stack
 
 def infixToPostfix(infixexpr):
     prec = {}
+    prec["^"] = 4
     prec["*"] = 3
     prec["/"] = 3
     prec["+"] = 2
@@ -33,5 +34,5 @@ def infixToPostfix(infixexpr):
     return " ".join(postfixList)
 
 
-print(infixToPostfix("5 * 3 ^ ( 4 - 2 )"))
-print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+print(infixToPostfix("3 + ( 8 – ( 6 – 2 ) ) / ( 4 + 5 )"))
+# print(infixToPostfix("( A + B ) * C - ( D - E ) * ( F + G )"))
