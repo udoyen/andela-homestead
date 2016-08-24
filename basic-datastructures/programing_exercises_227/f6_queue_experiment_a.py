@@ -39,46 +39,36 @@ q = Queue()
 #    these object instances.
 
 m = MyQueue()
-t1 = time.time()
-for i in range(1, 100001):
-    m.enqueue(i)
-timeit.timeit(m.enqueue(i) for i in range(1, 100001))
-t2 = time.time()
 
-exec_time = t2 - t1
+print(timeit.timeit('(m.enqueue(i) for i in range(1, 100001))', number=10000))
 
-# m.dequeue()
-
-t3 = time.time()
-for u in range(1, 100001):
-    q.enqueue(u)
-t4 = time.time()
-
-exec_time2 = t4 - t3
+print(timeit.timeit('(q.enqueue(u) for u in range(1, 100001))', number=10000))
 
 
-t5 = time.time()
-if not q.isEmpty():
-    while q.items:
-        q.dequeue()
-t6 = time.time()
-exec_time3 = t6 - t5
+def py():
+    if not q.isEmpty():
+        while q.items:
+            q.dequeue()
 
-t7 = time.time()
-if not m.items:
-    while m.items:
-        m.dequeue()
-t8 = time.time()
-exec_time4 = t8 - t7
 
-print("")
-print("----------------------")
-print("Enqueue Operations")
-print("----------------------")
-print("MyQueue Result 1: ",     exec_time)
-print("Python Queue Result 2: ", exec_time2)
-print("----------------------")
-print("Dequeue Operations")
-print("----------------------")
-print("MyQueue Result 1: ",      exec_time3)
-print("Python Queue Result 2: ", exec_time4)
+def me():
+    if not m.items:
+        while m.items:
+            m.dequeue()
+
+me()
+
+py()
+
+#
+# print("")
+# print("----------------------")
+# print("Enqueue Operations")
+# print("----------------------")
+# print("MyQueue Result 1: ",     exec_time)
+# print("Python Queue Result 2: ", exec_time2)
+# print("----------------------")
+# print("Dequeue Operations")
+# print("----------------------")
+# print("MyQueue Result 1: ",      exec_time3)
+# print("Python Queue Result 2: ", exec_time4)
