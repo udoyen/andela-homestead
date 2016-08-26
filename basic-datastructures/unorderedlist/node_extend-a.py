@@ -140,6 +140,9 @@ class UnorderedList:
         current = self.head
         if self.size() == 0:
             print("Linked list is empty!")
+        elif current.getData() == item:
+            curpos += 1
+            return curpos
         else:
             while current != None and not found:
                 curpos += 1
