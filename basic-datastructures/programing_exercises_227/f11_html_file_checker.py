@@ -1,34 +1,36 @@
-from pythonds.basic.deque import Deque
+from pythonds.basic.stack import Stack
 import re
 
 
 def parChecker(tagname):
-    s = Deque()
-    succount = 0
-    balance = False
-    token = re.findall(r"(<[</[\w']+>)", tagname)
-    for i in token:
-        s.addFront(i)
-    items = s.size()
-    it = 0
-    while not s.isEmpty() and not balance:
-        if it < items // 2:
-            f2 = list(s.removeFront())
-            f1 = list(s.removeRear())
-            for i in f1:
-                for j in f2:
-                    if j not in f1 and j == '/':
-                        f2.remove(j)
-                        if set(f2) & set(f1):
-                            succount += 1
-                            if succount == items // 2:
-                                balance = True
-                            else:
-                                print("False")
-                    else:
-                        balance = False
-            it += 1
-    return False
+    right = Stack()
+    balanced = True
+    # get list of start tags
+    lefttoken = re.findall(r"(<[\w']+>)", tagname)
+    # get list of end tags
+    rightoken = re.findall(r"(</[\w']+>)", tagname)
+
+    for j in rightoken:
+        right.push(j)
+
+    while not right.isEmpty() and balanced:
+        if len(lefttoken) == len(rightoken):
+            s = list(right.pop())
+            for m in s:
+                if m == "/":
+                    s.remove(m)
+                    neword = " ".join(s)
+                    for dword in lefttoken:
+                        if dword in lefttoken:
+                            balanced = True
+                        else:
+                            balanced = False
+        else:
+            balanced = False
+    if balanced:
+        return True
+    else:
+        return False
 
 
-parChecker("<html><head><title></title></head></html>")
+parChecker("<html><head><title>Tony's Blog</title></head><body><div>Help is here!</div><body></html>")
