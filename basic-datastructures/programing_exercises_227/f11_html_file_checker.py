@@ -19,12 +19,11 @@ def parChecker(tagname):
             for m in s:
                 if m == "/":
                     s.remove(m)
-                    neword = " ".join(s)
-                    for dword in lefttoken:
-                        if dword in lefttoken:
-                            balanced = True
-                        else:
-                            balanced = False
+                    neword = "".join(s)
+                    if neword in lefttoken:
+                        balanced = True
+                    else:
+                        balanced = False
         else:
             balanced = False
     if balanced:
