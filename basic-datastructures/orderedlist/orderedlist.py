@@ -19,7 +19,7 @@ class Node:
         self.next = newnext
 
 
-class OderedList:
+class OrderedList:
     def __init__(self):
         self.head = None
         self.nodels = []
@@ -85,12 +85,14 @@ class OderedList:
             temp.setNext(self.head)
             self.head = temp
             self.lssize += 1
-            sort(self.nodels.insert(0, temp))
+            self.nodels.append(temp.getData())
+            self.nodels.sort()
         else:
             temp.setNext(current)
             previous.setNext(temp)
             self.lssize += 1
-            sort(self.nodels.insert(0, temp))
+            self.nodels.append(temp.getData())
+            self.nodels.sort()
 
     def pop(self):
         current = self.head
@@ -121,6 +123,9 @@ class OderedList:
         current = self.head
         if self.size() == 0:
             print("Linked list is empty!")
+        elif current.getData() == item:
+            curpos += 1
+            return curpos
         else:
             while current != None and not found:
                 curpos += 1
@@ -130,4 +135,10 @@ class OderedList:
                     current = current.getNext()
 
             return curpos
+
+mylist = OrderedList()
+mylist.add(31)
+mylist.add(80)
+mylist.add(77)
+
 
