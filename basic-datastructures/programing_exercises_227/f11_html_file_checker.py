@@ -32,4 +32,5 @@ def parChecker(tagname):
         return False
 
 
-parChecker("<html><head><title>Tony's Blog</title></head><body><div>Help is here!</div><body></html>")
+parChecker("<html><head><title>Tony's Blog</title></head><body><div>Help is here!</div>"
+           "<h1>Hello, World</h1></body></html>")
