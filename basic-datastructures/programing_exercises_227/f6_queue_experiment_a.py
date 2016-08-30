@@ -56,9 +56,28 @@ def me():
         while m.items:
             m.dequeue()
 
-me()
+def k():
+    pass
 
-py()
+
+t1 = timeit.Timer("py()", "from __main__ import py")
+print("Python Queue dequeue ", t1.timeit(number=1000), "milliseconds")
+
+t1 = timeit.Timer("me()", "from __main__ import me")
+print("MyQueue dequeue      ", t1.timeit(number=1000), "milliseconds")
+
+t1 = timeit.Timer("k()", "from __main__ import k")
+print("My k function call      ", t1.timeit(number=1000), "milliseconds")
+
+
+# print(timeit.timeit('m.dequeue()', '(m.enqueue(i) for i in range(1, 100001))', number=10000))
+
+
+
+#
+# me()
+#
+# py()
 
 #
 # print("")
