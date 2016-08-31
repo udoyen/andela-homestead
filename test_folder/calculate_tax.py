@@ -7,7 +7,6 @@ def calculate_tax(taxinfo):
             if value < 1000:
                 tax = 0
                 info[key] = tax
-                # return info
             else:
                 if value > 1000:
                     value -= 1000
@@ -20,7 +19,6 @@ def calculate_tax(taxinfo):
                     newtax = ((10 / 100) * value)
                     tax += newtax
                     info[key] = tax
-                    # return info
                 if value > 10200:
                     value -= 10200
                     newtax = (15 / 100) * 10200
@@ -29,7 +27,6 @@ def calculate_tax(taxinfo):
                     newtax = ((15 / 100) * value)
                     tax += newtax
                     info[key] = tax
-                    # return info
                 if value > 10550:
                     value -= 10550
                     newtax = (20 / 100) * 10550
@@ -38,7 +35,6 @@ def calculate_tax(taxinfo):
                     newtax = ((20 / 100) * value)
                     tax += newtax
                     info[key] = tax
-                    # return info
                 if value > 19250:
                     value -= 19250
                     newtax = (25 / 100) * 19250
@@ -47,17 +43,14 @@ def calculate_tax(taxinfo):
                     newtax = ((25 / 100) * value)
                     tax += newtax
                     info[key] = tax
-                    # return info
                 if value > 50000:
                     newtax = (30 / 100) * value
                     tax += newtax
                     info[key] = tax
-                    # return info
                 else:
                     newtax = ((30 / 100) * value)
                     tax += newtax
                     info[key] = tax
-                    # return info
     else:
         return "Only dictionaries are allowed"
     return info
