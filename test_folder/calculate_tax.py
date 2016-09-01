@@ -2,58 +2,67 @@ def calculate_tax(taxinfo):
     tax = 0
     newtax = 0
     info = {}
-    if isinstance(taxinfo, dict):
-        for key, value in taxinfo.items():
-            if value < 1000:
-                tax = 0
-                info[key] = tax
-            else:
-                if value > 1000:
-                    value -= 1000
-                    tax = 0
-                if value > 9000:
-                    value -= 9000
-                    newtax = (10 / 100) * 9000
-                    tax += newtax
+    if not isinstance(taxinfo, int):
+        if taxinfo:
+            for key, value in taxinfo.items():
+                if not isinstance(value, str):
+                    if isinstance(value, int):
+                        if value < 1000:
+                            tax = 0
+                            info[key] = tax
+                        else:
+                            if value > 1000.0:
+                                value -= 1000.0
+                                tax = 0
+                                if value > 9000:
+                                    value -= 9000
+                                    newtax = float((10.0 / 100.0) * 9000)
+                                    tax += newtax
+                                    if value > 10200:
+                                        value -= 10200
+                                        newtax = float((15.0 / 100.0) * 10200)
+                                        tax += newtax
+                                        if value > 10550:
+                                            value -= 10550
+                                            newtax = float((20.0 / 100.0) * 10550)
+                                            tax += newtax
+                                            if value > 19250:
+                                                value -= 19250
+                                                newtax = float((25.0 / 100.0) * 19250)
+                                                tax += newtax
+                                                if value > 50000:
+                                                    newtax = float((30.0 / 100.0) * value)
+                                                    tax += newtax
+                                                    info[key] = tax
+                                                else:
+                                                    newtax = (float((30.0 / 100.0) * value))
+                                                    tax += newtax
+                                                    info[key] = tax
+                                            else:
+                                                newtax = (float((25.0 / 100.0) * value))
+                                                tax += newtax
+                                                info[key] = tax
+                                        else:
+                                            newtax = (float((20.0 / 100.0) * value))
+                                            tax += newtax
+                                            info[key] = tax
+                                    else:
+                                        newtax = (float((15.0 / 100.0) * value))
+                                        tax += newtax
+                                        info[key] = tax
+                                else:
+                                    newtax = (float((10.0 / 100.0) * value))
+                                    tax += newtax
+                                    info[key] = tax
+                    else:
+                        raise ValueError()
                 else:
-                    newtax = ((10 / 100) * value)
-                    tax += newtax
-                    info[key] = tax
-                if value > 10200:
-                    value -= 10200
-                    newtax = (15 / 100) * 10200
-                    tax += newtax
-                else:
-                    newtax = ((15 / 100) * value)
-                    tax += newtax
-                    info[key] = tax
-                if value > 10550:
-                    value -= 10550
-                    newtax = (20 / 100) * 10550
-                    tax += newtax
-                else:
-                    newtax = ((20 / 100) * value)
-                    tax += newtax
-                    info[key] = tax
-                if value > 19250:
-                    value -= 19250
-                    newtax = (25 / 100) * 19250
-                    tax += newtax
-                else:
-                    newtax = ((25 / 100) * value)
-                    tax += newtax
-                    info[key] = tax
-                if value > 50000:
-                    newtax = (30 / 100) * value
-                    tax += newtax
-                    info[key] = tax
-                else:
-                    newtax = ((30 / 100) * value)
-                    tax += newtax
-                    info[key] = tax
+                    raise ValueError()
+            return info
+        else:
+            return taxinfo
     else:
-        return "Only dictionaries are allowed"
-    return info
+        raise ValueError()
 
 
-print(calculate_tax({'Alex': 500, 'James': 20500, 'Kinuthia': 70000}))
+print(calculate_tax({"James": 20500}))
