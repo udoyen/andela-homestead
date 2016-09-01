@@ -56,8 +56,21 @@ def me():
         while m.items:
             m.dequeue()
 
+
 def k():
     pass
+
+
+def printer(n):
+    if n <= 0:
+        return "Please enter a number greater than 0"
+    else:
+        for i in range(0, n):
+            return i
+
+
+def t(d):
+    d = 2
 
 
 t1 = timeit.Timer("py()", "from __main__ import py")
@@ -69,6 +82,13 @@ print("MyQueue dequeue      ", t1.timeit(number=1000), "milliseconds")
 t1 = timeit.Timer("k()", "from __main__ import k")
 print("My k function call      ", t1.timeit(number=1000), "milliseconds")
 
+
+t1 = timeit.Timer("printer(1)", "from __main__ import printer")
+print("Printer function call      ", t1.timeit(number=1000000), "milliseconds")
+
+
+t1 = timeit.Timer("t(1000000000000000)", "from __main__ import t")
+print("t function call      ", t1.timeit(number=1000000), "milliseconds")
 
 # print(timeit.timeit('m.dequeue()', '(m.enqueue(i) for i in range(1, 100001))', number=10000))
 
