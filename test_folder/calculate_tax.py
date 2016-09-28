@@ -7,7 +7,7 @@ def calculate_tax(taxinfo):
             for key, value in taxinfo.items():
                 if not isinstance(value, str):
                     if isinstance(value, int):
-                        if value < 1000:
+                        if value <= 1000:
                             tax = 0
                             info[key] = tax
                         else:
@@ -65,4 +65,4 @@ def calculate_tax(taxinfo):
         raise ValueError()
 
 
-print(calculate_tax({"James": 20500}))
+print(calculate_tax({"James": 10000, "George": 32000}))

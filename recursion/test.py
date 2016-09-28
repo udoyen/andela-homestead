@@ -5,4 +5,4 @@ def rev(word):
         clip = rev(word[:-1])
         return rev(word[-1:]) + clip
 
-print(rev("apple"))
+print(rev("ejiofor"))
