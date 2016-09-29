@@ -25,4 +25,4 @@ def replicate_recur(times, data):
         raise ValueError()
 
 
-print(replicate_iter(-1, []))
+print(replicate_recur(2, 2))
