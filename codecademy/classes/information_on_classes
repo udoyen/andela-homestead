@@ -1,0 +1,27 @@
+Variables
+================
+
+Global      => everywhere
+Member      => only available to members --> in functions
+Instance    => Only available to particular instance of a class --> in created instances of that class
+
+
+Functions
+================
+
+Global      => everywhere
+Member      => only available to members --> in functions
+Instance    => Only available to particular instance of a class --> in created instances of that class
+
+
+Class
+===============
+
+class DerivedClass(BaseClass):
+    # code goes here
+
+Access Methods in Superclass
++++++++++++++++++++++++++++=
+class Derived(Base):
+    def m(self):
+    return super(Derived, self).m()

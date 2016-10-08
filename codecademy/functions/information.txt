@@ -1,0 +1,11 @@
+Types of imports in python
+=============================
+
+import math --> module import
+    use: math.sqrt(number)
+
+from math import sqrt --> Function import
+    use: sqrt(number)
+
+from module import * --> Universal Import
+    use: sqrt(number)
