@@ -72,9 +72,9 @@ class Fraction:
 
 f1 = Fraction(3, 4)
 f2 = Fraction(1, 2)
-# f3 = f1 + f2
-# print(f3)
-print(f2.getnum())
+f3 = f1 - f2
+print(f3)
+# print(f2.getnum())
 
 # print(gcd(3, 7))
 

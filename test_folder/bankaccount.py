@@ -29,9 +29,9 @@ class SavingsAccount(BankAccount):
                     self.balance -= amount
                     return self.balance
                 else:
-                    print("Cannot withdraw beyond the minimum account balance")
+                    return "Cannot withdraw beyond the minimum account balance"
             else:
-                print("Cannot withdraw beyond the current account balance")
+                return "Cannot withdraw beyond the current account balance"
         else:
             return "Invalid withdraw amount"
         # return self.balance
